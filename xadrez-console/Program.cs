@@ -11,13 +11,9 @@ namespace xadrez_console
         {
             try
             {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0,0));
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1,3));
-                tab.ColocarPeca(new Rei(tab, Cor.Branca), new Posicao(0,4));
-
-                Tela.ImprimirTabuleiro(tab);
+                Tela.ImprimirTabuleiro(partida.Tab);
             }
             catch (TabuleiroException e)
             {
