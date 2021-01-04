@@ -9,7 +9,7 @@ namespace xadrez
         public Tabuleiro Tab { get; private set; }
         private int turno;
         private Cor JogadorAtual;
-        private bool Terminada;
+        public bool Terminada { get; private set; }
 
         public PartidaDeXadrez()
         {
