@@ -77,6 +77,19 @@ namespace xadrez
             }
         }
 
+        public HashSet<Peca> PecasCapturadas(Cor cor)
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in Capturadas)
+            {
+                if(x.Cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            return aux;
+        }
+
         public void ColocarNewPeca(char linha, int coluna, Peca peca)
         {
             Tab.ColocarPeca(peca, new PosicaoXadrez(linha, coluna).ToPosicao());
