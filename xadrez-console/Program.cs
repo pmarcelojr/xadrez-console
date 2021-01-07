@@ -24,6 +24,7 @@ namespace xadrez_console
                     Console.WriteLine();
                     Console.Write("Origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    partida.ValidarPosicaoOrigem(origem);
 
                     bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
 
