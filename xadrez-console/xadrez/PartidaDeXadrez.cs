@@ -14,6 +14,9 @@ namespace xadrez
         private HashSet<Peca> Capturadas;
         public bool Xeque { get; private set; }
         public Peca VulneravelEnPassant { get; private set; }
+        public bool Promocao { get; private set; }
+        public Peca PecaPromocao { get; private set; }
+        public Posicao PosicaoPecaPromocao { get; private set; }
 
         public PartidaDeXadrez()
         {
@@ -23,6 +26,9 @@ namespace xadrez
             Xeque = false;
             JogadorAtual = Cor.Branca;
             VulneravelEnPassant = null;
+            Promocao = false;
+            PecaPromocao = null;
+            PosicaoPecaPromocao = new Posicao(0,0);
             Pecas = new HashSet<Peca>();
             Capturadas = new HashSet<Peca>();
             ColocarPecas();
@@ -142,16 +148,18 @@ namespace xadrez
             Peca p = Tab.Peca(destino);
 
             // # JogadaEspecial Promocao
-            if(p is Peao)
+            PecaPromocao = Tab.Peca(destino);
+            PosicaoPecaPromocao = destino;
+            if(PecaPromocao is Peao)
             {
-                if((p.Cor == Cor.Branca && destino.Linha == 0) || (p.Cor == Cor.Preta && destino.Linha == 7))
+                if((PecaPromocao.Cor == Cor.Branca && destino.Linha == 0) || (PecaPromocao.Cor == Cor.Preta && destino.Linha == 7))
                 {
-                    p = Tab.RetirarPeca(destino);
-                    Pecas.Remove(p);
-                    Peca dama = new Dama(Tab, p.Cor);
-                    Tab.ColocarPeca(dama, destino);
-                    Pecas.Add(dama);
+                    Promocao = true;
                 }
+            }
+            else
+            {
+                Promocao = false;
             }
 
             if (EstaEmXeque(Adversaria(JogadorAtual)))
@@ -181,6 +189,46 @@ namespace xadrez
             else
             {
                 VulneravelEnPassant = null;
+            }
+        }
+
+        public void EscolhaPromocao(string s)
+        {
+            PecaPromocao = Tab.RetirarPeca(PosicaoPecaPromocao);
+            Pecas.Remove(PecaPromocao);
+            Peca p;
+            int i = 0;
+            if(int.TryParse(s, out i))
+            {
+                switch (i)
+                {
+                    case 1:
+                        p = new Dama(Tab, PecaPromocao.Cor);
+                        break;
+                    case 2:
+                        p = new Bispo(Tab, PecaPromocao.Cor);
+                        break;
+                    case 3:
+                        p = new Torre(Tab, PecaPromocao.Cor);
+                        break;
+                    case 4:
+                        p = new Cavalo(Tab, PecaPromocao.Cor);
+                        break;
+                    default:
+                        p = new Dama(Tab, PecaPromocao.Cor);
+                        break;
+                }
+                Tab.ColocarPeca(p, PosicaoPecaPromocao);
+                Pecas.Add(p);
+                Promocao = false;
+            }
+            else
+            {
+                p = new Dama(Tab, PecaPromocao.Cor);
+                Tab.ColocarPeca(p, PosicaoPecaPromocao);
+                Pecas.Add(p);
+                Promocao = false;
+                throw new TabuleiroException("Valor digitado não é um número ou é Inválido! Peça será uma Dama!");
             }
         }
 
