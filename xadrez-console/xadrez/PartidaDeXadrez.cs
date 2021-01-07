@@ -109,6 +109,25 @@ namespace xadrez
                 T.DecrementarQtdMovimentos();
                 Tab.ColocarPeca(T, origemT);
             }
+
+            // # JogadaEspecia En Passant
+            if(p is Peao)
+            {
+                if(origem.Coluna != destino.Coluna && pecaCapturada == VulneravelEnPassant)
+                {
+                    Peca peao = Tab.RetirarPeca(destino);
+                    Posicao posP;
+                    if(p.Cor == Cor.Branca)
+                    {
+                        posP = new Posicao(3, destino.Coluna);
+                    }
+                    else
+                    {
+                        posP = new Posicao(4, destino.Coluna);
+                    }
+                    Tab.ColocarPeca(peao, posP);
+                }
+            }
         }
         public void RealizaJogada(Posicao origem, Posicao destino)
         {
