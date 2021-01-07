@@ -46,8 +46,15 @@ namespace xadrez
                 T.IncrementarQtdMovimentos();
                 Tab.ColocarPeca(T, destinoT);
             }
-
-
+            // # JogadaEspecial Roque Grande
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna - 4);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna - 1);
+                Peca T = Tab.RetirarPeca(origemT);
+                T.IncrementarQtdMovimentos();
+                Tab.ColocarPeca(T, destinoT);
+            }
 
             return pecaCapturada;
         }
@@ -68,6 +75,15 @@ namespace xadrez
             {
                 Posicao origemT = new Posicao(origem.Linha, origem.Coluna + 3);
                 Posicao destinoT = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca T = Tab.RetirarPeca(destinoT);
+                T.DecrementarQtdMovimentos();
+                Tab.ColocarPeca(T, origemT);
+            }
+            // # JogadaEspecial Roque Grande
+            if (p is Rei && destino.Coluna == origem.Coluna - 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna - 4);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna - 1);
                 Peca T = Tab.RetirarPeca(destinoT);
                 T.DecrementarQtdMovimentos();
                 Tab.ColocarPeca(T, origemT);
