@@ -30,6 +30,10 @@ namespace xadrez
             p.IncrementarQtdMovimentos();
             Peca pecaCapturada = Tab.RetirarPeca(destino);
             Tab.ColocarPeca(p, destino);
+            if(pecaCapturada != null)
+            {
+                Capturadas.Add(pecaCapturada);
+            }
         }
 
         public void RealizaJogada(Posicao origem, Posicao destino)
