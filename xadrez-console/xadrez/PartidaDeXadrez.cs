@@ -36,6 +36,19 @@ namespace xadrez
             {
                 Capturadas.Add(pecaCapturada);
             }
+
+            // # JogadaEspecial Roque Pequeno
+            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna + 3);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca T = Tab.RetirarPeca(origemT);
+                T.IncrementarQtdMovimentos();
+                Tab.ColocarPeca(T, destinoT);
+            }
+
+
+
             return pecaCapturada;
         }
 
@@ -49,6 +62,16 @@ namespace xadrez
                 Capturadas.Remove(pecaCapturada);
             }
             Tab.ColocarPeca(p, origem);
+
+            // # JogadaEspecial Roque Pequeno
+            if (p is Rei && destino.Coluna == origem.Coluna + 2)
+            {
+                Posicao origemT = new Posicao(origem.Linha, origem.Coluna + 3);
+                Posicao destinoT = new Posicao(origem.Linha, origem.Coluna + 1);
+                Peca T = Tab.RetirarPeca(destinoT);
+                T.DecrementarQtdMovimentos();
+                Tab.ColocarPeca(T, origemT);
+            }
         }
         public void RealizaJogada(Posicao origem, Posicao destino)
         {
