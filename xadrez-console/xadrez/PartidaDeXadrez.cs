@@ -223,19 +223,40 @@ namespace xadrez
 
         private void ColocarPecas()
         {
-            ColocarNewPeca('c', 1, new Torre(Tab, Cor.Branca));
-            ColocarNewPeca('h', 7, new Torre(Tab, Cor.Branca));
-            ColocarNewPeca('d', 1, new Rei(Tab, Cor.Branca));
-            //ColocarNewPeca('d', 2, new Torre(Tab, Cor.Branca));
-            //ColocarNewPeca('e', 1, new Torre(Tab, Cor.Branca));
-            //ColocarNewPeca('e', 2, new Torre(Tab, Cor.Branca));
-
-            ColocarNewPeca('b', 8, new Torre(Tab, Cor.Preta));
-            //ColocarNewPeca('c', 7, new Torre(Tab, Cor.Preta));
-            ColocarNewPeca('a', 8, new Rei(Tab, Cor.Preta));
-            //ColocarNewPeca('d', 7, new Torre(Tab, Cor.Preta));
-            //ColocarNewPeca('e', 8, new Torre(Tab, Cor.Preta));
-            //ColocarNewPeca('e', 7, new Torre(Tab, Cor.Preta));
+            // Peças Brancas
+            ColocarNewPeca('a', 1, new Torre(Tab, Cor.Branca));
+            ColocarNewPeca('b', 1, new Cavalo(Tab, Cor.Branca));
+            ColocarNewPeca('c', 1, new Bispo(Tab, Cor.Branca));
+            ColocarNewPeca('d', 1, new Dama(Tab, Cor.Branca));
+            ColocarNewPeca('e', 1, new Rei(Tab, Cor.Branca));
+            ColocarNewPeca('f', 1, new Bispo(Tab, Cor.Branca));
+            ColocarNewPeca('g', 1, new Cavalo(Tab, Cor.Branca));
+            ColocarNewPeca('h', 1, new Torre(Tab, Cor.Branca));
+            ColocarNewPeca('a', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('b', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('c', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('d', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('e', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('f', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('g', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('h', 2, new Peao(Tab, Cor.Branca));
+            // Peças Pretas
+            ColocarNewPeca('a', 8, new Torre(Tab, Cor.Preta));
+            ColocarNewPeca('b', 8, new Cavalo(Tab, Cor.Preta));
+            ColocarNewPeca('c', 8, new Bispo(Tab, Cor.Preta));
+            ColocarNewPeca('d', 8, new Dama(Tab, Cor.Preta));
+            ColocarNewPeca('e', 8, new Rei(Tab, Cor.Preta));
+            ColocarNewPeca('f', 8, new Bispo(Tab, Cor.Preta));
+            ColocarNewPeca('g', 8, new Cavalo(Tab, Cor.Preta));
+            ColocarNewPeca('h', 8, new Torre(Tab, Cor.Preta));
+            ColocarNewPeca('a', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('b', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('c', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('d', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('e', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('f', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('g', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('h', 7, new Peao(Tab, Cor.Preta));
         }
     }
 }
