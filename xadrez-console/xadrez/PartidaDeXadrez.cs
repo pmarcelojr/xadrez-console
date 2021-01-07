@@ -13,7 +13,7 @@ namespace xadrez
         private HashSet<Peca> Pecas;
         private HashSet<Peca> Capturadas;
         public bool Xeque { get; private set; }
-        private Peca VulneravelEnPassant;
+        public Peca VulneravelEnPassant { get; private set; }
 
         public PartidaDeXadrez()
         {
@@ -285,14 +285,14 @@ namespace xadrez
             ColocarNewPeca('f', 1, new Bispo(Tab, Cor.Branca));
             ColocarNewPeca('g', 1, new Cavalo(Tab, Cor.Branca));
             ColocarNewPeca('h', 1, new Torre(Tab, Cor.Branca));
-            ColocarNewPeca('a', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('b', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('c', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('d', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('e', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('f', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('g', 2, new Peao(Tab, Cor.Branca));
-            ColocarNewPeca('h', 2, new Peao(Tab, Cor.Branca));
+            ColocarNewPeca('a', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('b', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('c', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('d', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('e', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('f', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('g', 2, new Peao(Tab, Cor.Branca, this));
+            ColocarNewPeca('h', 2, new Peao(Tab, Cor.Branca, this));
             // Peças Pretas
             ColocarNewPeca('a', 8, new Torre(Tab, Cor.Preta));
             ColocarNewPeca('b', 8, new Cavalo(Tab, Cor.Preta));
@@ -302,14 +302,14 @@ namespace xadrez
             ColocarNewPeca('f', 8, new Bispo(Tab, Cor.Preta));
             ColocarNewPeca('g', 8, new Cavalo(Tab, Cor.Preta));
             ColocarNewPeca('h', 8, new Torre(Tab, Cor.Preta));
-            ColocarNewPeca('a', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('b', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('c', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('d', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('e', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('f', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('g', 7, new Peao(Tab, Cor.Preta));
-            ColocarNewPeca('h', 7, new Peao(Tab, Cor.Preta));
+            ColocarNewPeca('a', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('b', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('c', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('d', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('e', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('f', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('g', 7, new Peao(Tab, Cor.Preta, this));
+            ColocarNewPeca('h', 7, new Peao(Tab, Cor.Preta, this));
         }
     }
 }
